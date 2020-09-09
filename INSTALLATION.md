@@ -2,7 +2,6 @@ Installation
 
 Pull the image
 ```
-docker pull procept/coldfusion2018
 docker pull eaps-docker-coldfusion.bintray.io/cf/coldfusion:latest
 ```
 
