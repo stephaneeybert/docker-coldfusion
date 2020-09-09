@@ -6,6 +6,7 @@ services:
       - "8500:8500"
     networks:
       coldfusion:
+      common:
     volumes:
       - "~/dev/docker/projects/coldfusion/volumes/app:/app"
       - "~/dev/docker/projects/coldfusion/volumes/logs:/opt/coldfusion/cfusion/logs"
