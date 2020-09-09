@@ -1,0 +1,36 @@
+version: "3.7"
+services:
+  coldfusion:
+    image: localhost:5000/coldfusion:latest
+    ports:
+      - "8500:8500"
+    networks:
+      coldfusion:
+    volumes:
+      - "~/dev/docker/projects/coldfusion/volumes/app:/app"
+      - "~/dev/docker/projects/coldfusion/volumes/logs:/opt/coldfusion/cfusion/logs"
+    environment:
+      enableSecureProfile: "false"
+      setupScript: "setup.cfm"
+      HOST_USER_ID: ${CURRENT_UID}
+      HOST_GROUP_ID: ${CURRENT_GID}
+    env_file:
+      - "coldfusion.env"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+        delay: 5s
+        max_attempts: 3
+        window: 10s
+    healthcheck:
+      test: curl --fail http://localhost:8500 || exit 1
+      interval: 1m
+      timeout: 3s
+      retries: 3
+networks:
+  coldfusion:
+    name: coldfusion
+  common:  
+    external: true
+    name: common
