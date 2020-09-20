@@ -37,6 +37,7 @@ The admin console
 ```
 http://dev.coldfusion:8500/CFIDE/administrator/
 ```
+The default password is ColdFusion123
 
 Start the services
 ```  
