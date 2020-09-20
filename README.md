@@ -1,5 +1,7 @@
 Installation
 
+See https://helpx.adobe.com/coldfusion/using/docker-images-coldfusion.html
+
 Pull the image
 ```
 docker pull eaps-docker-coldfusion.bintray.io/cf/coldfusion:latest
